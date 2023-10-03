@@ -1,4 +1,4 @@
-import { db } from '../../config/firebase.js'; // Make sure to import the Firestore instance from your Firebase setup
+import { db } from '../../config/firebase.mjs'; // Make sure to import the Firestore instance from your Firebase setup
 import { Complaint } from '../../models/Complaints.js';
 export const createComplaint = async (req, res) => {
     const { title, description, category } = req.body;
