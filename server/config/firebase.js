@@ -1,14 +1,17 @@
-import { initializeApp } from "firebase/app";
+import admin from 'firebase-admin';
+import dotenv from 'dotenv';
+import serviceAccountKey from './serviceAccount.json' assert { type: 'json' };
+
+dotenv.config();
+
+const { FIREBASE_DATABASE_URL } = process.env;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCd_tyo0sShwb7TVY6HhgkeJLVAzKYuvPk",
-  authDomain: "hostel-management-system-4e2d2.firebaseapp.com",
-  projectId: "hostel-management-system-4e2d2",
-  storageBucket: "hostel-management-system-4e2d2.appspot.com",
-  messagingSenderId: "407230563251",
-  appId: "1:407230563251:web:813a0e538727a56a1f41c6",
-  measurementId: "G-7Y8KEYJZ28"
+    credential: admin.credential.cert(serviceAccountKey),
 };
 
-export const app = initializeApp(firebaseConfig);
-export const firestore = app.firestore();
+const firebaseApp = admin.initializeApp(firebaseConfig);
+
+export const db = firebaseApp.database();
+
+export default firebaseApp;

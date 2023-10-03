@@ -6,6 +6,10 @@ const app = express();
 app.use(bodyParser.json());
 dotenv.config();
 
+app.get('/', (req, res) => {
+    res.send('Server is up!');
+});
+
 const PORT = process.env.PORT;
 
 app.listen(PORT, (err) => {
