@@ -1,8 +1,9 @@
 export class Complaint {
-    constructor(title, description, category, status) {
+    constructor(title, description, votes, category, status, id = null) {
+        this.id = id;
         this.title = title;
         this.description = description;
-        this.votes = 0;
+        this.votes = votes;
         this.category = category;
         this.status = status;
     }
