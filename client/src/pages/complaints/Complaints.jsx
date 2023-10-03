@@ -11,7 +11,9 @@ const Complaints = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:4000/students/complaints/get')
+            .get(
+                'https://hostel-management-v2.onrender.com/students/complaints/get',
+            )
             .then((response) => {
                 setComplaints(response.data);
                 setLoading(false);
@@ -42,7 +44,7 @@ const Complaints = () => {
 
         axios
             .post(
-                `http://localhost:4000/students/complaints/${complaintId}/upvote`,
+                `https://hostel-management-v2.onrender.com/students/complaints/${complaintId}/upvote`,
             )
             .then((response) => {
                 if (response.status === 200) {
@@ -77,7 +79,7 @@ const Complaints = () => {
 
         axios
             .post(
-                `http://localhost:4000/students/complaints/${complaintId}/downvote`,
+                `https://hostel-management-v2.onrender.com/students/complaints/${complaintId}/downvote`,
             )
             .then((response) => {
                 if (response.status === 200) {
@@ -129,7 +131,7 @@ const Complaints = () => {
     const onCreateComplaint = async (complaintData) => {
         try {
             const response = await axios.post(
-                'http://localhost:4000/students/complaints/create',
+                'https://hostel-management-v2.onrender.com/students/complaints/create',
                 complaintData,
             );
             if (response.status === 201) {
